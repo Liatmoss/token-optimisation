@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <radialGradient id="base-glow" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#0c1a2e"/>
+      <stop offset="100%" stop-color="#05090f"/>
+    </radialGradient>
+    <radialGradient id="purple-bloom" cx="18%" cy="22%" r="55%">
+      <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.5"/>
+      <stop offset="50%" stop-color="#7c3aed" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#7c3aed" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="teal-bloom" cx="82%" cy="76%" r="48%">
+      <stop offset="0%" stop-color="#06d6a0" stop-opacity="0.32"/>
+      <stop offset="55%" stop-color="#06d6a0" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#06d6a0" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="blue-accent" cx="76%" cy="38%" r="32%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="teal-top-right" cx="92%" cy="8%" r="28%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="32" height="32" patternUnits="userSpaceOnUse">
+      <circle cx="1.5" cy="1.5" r="1" fill="#ffffff" fill-opacity="0.035"/>
+    </pattern>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#base-glow)"/>
+  <rect width="1920" height="1080" fill="url(#purple-bloom)"/>
+  <rect width="1920" height="1080" fill="url(#teal-bloom)"/>
+  <rect width="1920" height="1080" fill="url(#blue-accent)"/>
+  <rect width="1920" height="1080" fill="url(#teal-top-right)"/>
+  <rect width="1920" height="1080" fill="url(#dots)"/>
+</svg>
