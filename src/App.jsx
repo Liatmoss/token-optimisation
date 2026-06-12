@@ -172,14 +172,16 @@ function App() {
             <p className="rule-zero-title">{slide.title}</p>
             <h1 className="rule-zero-headline">{slide.headline}</h1>
             <p className="rule-zero-subtitle">{slide.subtitle}</p>
-            <div className="rule-zero-cards">
-              {slide.cards.map((card) => (
-                <div key={card.label} className="rule-zero-card">
-                  <div className="rule-zero-card-icon">{ICONS[card.icon]}</div>
-                  <span>{card.label}</span>
-                </div>
-              ))}
-            </div>
+            {slide.cards && (
+              <div className="rule-zero-cards">
+                {slide.cards.map((card) => (
+                  <div key={card.label} className="rule-zero-card">
+                    <div className="rule-zero-card-icon">{ICONS[card.icon]}</div>
+                    <span>{card.label}</span>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       ) : slide.layout === 'key-takeaways' ? (
@@ -255,29 +257,70 @@ function App() {
           </div>
         </div>
       ) : slide.layout === 'content-card' ? (
-        <div className="content-card-wrapper" aria-live="polite">
+        <div className={slide.video ? 'content-card-split-wrapper' : 'content-card-wrapper'} aria-live="polite">
           <h1 className="content-card-title">{slide.title}</h1>
           {slide.subtitle && <p className="content-card-subtitle">{slide.subtitle}</p>}
-          <div className="content-card">
-            <div className="content-card-header">
-              <div className="content-card-icon">{ICONS[slide.card.icon]}</div>
-              <h2 className="content-card-heading">{slide.card.heading}</h2>
+          {slide.video ? (
+            <div className="content-card-split-columns">
+              <div className="content-card">
+                <div className="content-card-header">
+                  <div className="content-card-icon">{ICONS[slide.card.icon]}</div>
+                  <h2 className="content-card-heading">{slide.card.heading}</h2>
+                </div>
+                <ul className="content-card-points">
+                  {slide.card.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+                {slide.card.secondaryHeading && (
+                  <>
+                    <div className="content-card-header">
+                      {slide.card.secondaryIcon && <div className="content-card-icon">{ICONS[slide.card.secondaryIcon]}</div>}
+                      <h2 className="content-card-heading">{slide.card.secondaryHeading}</h2>
+                    </div>
+                    <ul className="content-card-points">
+                      {slide.card.secondaryPoints.map((point) => (
+                        <li key={point}>{point}</li>
+                      ))}
+                    </ul>
+                  </>
+                )}
+              </div>
+              <video
+                ref={videoRef}
+                src={slide.video}
+                muted
+                playsInline
+                loop
+                className="content-card-split-video"
+              />
             </div>
-            <ul className="content-card-points">
-              {slide.card.points.map((point) => (
-                <li key={point}>{point}</li>
-              ))}
-            </ul>
-            <div className="content-card-header">
-              {slide.card.secondaryIcon && <div className="content-card-icon">{ICONS[slide.card.secondaryIcon]}</div>}
-              <h2 className="content-card-heading">{slide.card.secondaryHeading}</h2>
+          ) : (
+            <div className="content-card">
+              <div className="content-card-header">
+                <div className="content-card-icon">{ICONS[slide.card.icon]}</div>
+                <h2 className="content-card-heading">{slide.card.heading}</h2>
+              </div>
+              <ul className="content-card-points">
+                {slide.card.points.map((point) => (
+                  <li key={point}>{point}</li>
+                ))}
+              </ul>
+              {slide.card.secondaryHeading && (
+                <>
+                  <div className="content-card-header">
+                    {slide.card.secondaryIcon && <div className="content-card-icon">{ICONS[slide.card.secondaryIcon]}</div>}
+                    <h2 className="content-card-heading">{slide.card.secondaryHeading}</h2>
+                  </div>
+                  <ul className="content-card-points">
+                    {slide.card.secondaryPoints.map((point) => (
+                      <li key={point}>{point}</li>
+                    ))}
+                  </ul>
+                </>
+              )}
             </div>
-            <ul className="content-card-points">
-              {slide.card.secondaryPoints.map((point) => (
-                <li key={point}>{point}</li>
-              ))}
-            </ul>
-          </div>
+          )}
         </div>
       ) : slide.layout === 'dark-list' ? (
         <div className="dark-list-wrapper" aria-live="polite">
