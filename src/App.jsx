@@ -286,14 +286,16 @@ function App() {
                   </>
                 )}
               </div>
-              <video
-                ref={videoRef}
-                src={slide.video}
-                muted
-                playsInline
-                loop
-                className="content-card-split-video"
-              />
+              <div className="content-card-split-video-wrapper">
+                <video
+                  ref={videoRef}
+                  src={slide.video}
+                  muted
+                  playsInline
+                  loop
+                  className="content-card-split-video"
+                />
+              </div>
             </div>
           ) : (
             <div className="content-card">
@@ -321,6 +323,19 @@ function App() {
               )}
             </div>
           )}
+        </div>
+      ) : slide.layout === 'agenda' ? (
+        <div className="agenda-wrapper" aria-live="polite">
+          <h1 className="agenda-title">{slide.title}</h1>
+          <div className="agenda-grid">
+            {slide.items.map((item) => (
+              <div key={item.number} className="agenda-card">
+                <span className="agenda-number">{item.number}</span>
+                <h2 className="agenda-heading">{item.heading}</h2>
+                <p className="agenda-text">{item.text}</p>
+              </div>
+            ))}
+          </div>
         </div>
       ) : slide.layout === 'dark-list' ? (
         <div className="dark-list-wrapper" aria-live="polite">

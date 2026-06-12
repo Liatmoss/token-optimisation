@@ -52,6 +52,7 @@ src/
 | `comparison-cards` | Dark full-screen, title, two side-by-side cards (`{ title, cards }`) |
 | `image-list` | Dark full-screen, title, left video/placeholder, right icon-per-bullet list (`{ title, items, video? }`) |
 | `key-takeaways` | Dark full-screen, title, subtitle, icon cards, callout box (`{ title, subtitle, cards, callout }`) |
+| `agenda` | Dark full-screen, glowing title, 2×2 grid of numbered cards (`{ title, items[] }`) — each item: `{ number, heading, text }` |
 
 ## Adding videos
 
@@ -80,11 +81,26 @@ git push -u origin feat/your-branch-name
 gh pr create ...
 ```
 
+## Style notes
+
+When adding a new layout, base card styles on the existing dark card pattern — do not use white/light backgrounds:
+
+```css
+background: rgba(0, 0, 0, 0.25);
+border: 1px solid rgba(139, 92, 246, 0.4);
+border-radius: 12px;
+backdrop-filter: blur(6px);
+```
+
+Videos use `border-radius: 20px` (larger than card radius to appear visually equivalent at video scale). Always add `overflow: hidden` alongside `border-radius` on video elements to ensure corners clip correctly.
+
+When a layout is large (full slide), set `grid-row: 1 / 3` on the wrapper so it spans both the header and content grid rows of `.deck`.
+
 ## Colour scheme (dark slides)
 
 - Background: `#060d1a` + `src/assets/background.svg`
 - Headline glow: `#ffffff` with `text-shadow: 0 0 40px rgba(6,214,160,0.6), 0 0 80px rgba(6,214,160,0.3)`
 - Accent / borders: `#14b8a6` (teal)
 - Card borders: `rgba(139, 92, 246, 0.35)` (purple)
-- Icon colour: `#2dd4bf` (light teal)
-- Muted text: `rgba(255, 255, 255, 0.6)`
+- Icon colour / numbers: `#2dd4bf` (light teal)
+- Muted text: `rgba(255, 255, 255, 0.65)`
