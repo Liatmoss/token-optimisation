@@ -172,14 +172,16 @@ function App() {
             <p className="rule-zero-title">{slide.title}</p>
             <h1 className="rule-zero-headline">{slide.headline}</h1>
             <p className="rule-zero-subtitle">{slide.subtitle}</p>
-            <div className="rule-zero-cards">
-              {slide.cards.map((card) => (
-                <div key={card.label} className="rule-zero-card">
-                  <div className="rule-zero-card-icon">{ICONS[card.icon]}</div>
-                  <span>{card.label}</span>
-                </div>
-              ))}
-            </div>
+            {slide.cards && (
+              <div className="rule-zero-cards">
+                {slide.cards.map((card) => (
+                  <div key={card.label} className="rule-zero-card">
+                    <div className="rule-zero-card-icon">{ICONS[card.icon]}</div>
+                    <span>{card.label}</span>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       ) : slide.layout === 'key-takeaways' ? (
