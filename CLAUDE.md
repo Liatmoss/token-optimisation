@@ -14,6 +14,12 @@ Then open http://localhost:5173.
 
 > `npm run dev` will not work because the `prefix` entry in `~/.npmrc` conflicts with nvm, and the fallback system Node is v14.
 
+To kill the dev server:
+
+```bash
+lsof -ti :5173 | xargs kill -9
+```
+
 ## Project structure
 
 ```
@@ -42,10 +48,22 @@ src/
 | `heading+image` | Heading with glow + image below (`{ heading, image }`) |
 | `dark-list` | Dark full-screen, title with glow, numbered list left / video right (`{ title, points, video? }`) |
 | `rule-zero` | Dark hero: dim label, glowing headline, optional cards (`{ title, headline, subtitle?, cards? }`) |
-| `content-card` | Dark full-screen, title, subtitle, dark card with arrow bullets (`{ title, subtitle?, card }`) |
+| `content-card` | Dark full-screen, title, dark card with arrow bullets. Add `video` for a split layout: card left, video right (`{ title, subtitle?, card, video? }`) — `card.secondaryHeading` / `card.secondaryPoints` are optional |
 | `comparison-cards` | Dark full-screen, title, two side-by-side cards (`{ title, cards }`) |
 | `image-list` | Dark full-screen, title, left video/placeholder, right icon-per-bullet list (`{ title, items, video? }`) |
 | `key-takeaways` | Dark full-screen, title, subtitle, icon cards, callout box (`{ title, subtitle, cards, callout }`) |
+
+## Adding videos
+
+Import the video file at the top of the slide JS file and pass it as the `video` field:
+
+```js
+import video from '../assets/my-video.mov'
+
+const slide = { layout: 'content-card', video, ... }
+```
+
+MOV files work fine in the browser via Vite. Videos auto-play muted and loop when the slide is active.
 
 ## Available icons
 
