@@ -49,7 +49,7 @@ src/
 | `dark-list` | Dark full-screen, title with glow, numbered list left / video right (`{ title, points, video? }`) |
 | `rule-zero` | Dark hero: dim label, glowing headline, optional cards (`{ title, headline, subtitle?, cards? }`) |
 | `content-card` | Dark full-screen, title, dark card with arrow bullets. Add `video` for a split layout: card left, video right (`{ title, subtitle?, card, video? }`) — `card.secondaryHeading` / `card.secondaryPoints` are optional |
-| `comparison-cards` | Dark full-screen, title, two side-by-side cards (`{ title, cards }`) |
+| `comparison-cards` | Dark full-screen, title, two side-by-side cards (`{ title, cards[] }`) — each card: `{ icon, heading, points[] }`, each point: `{ label, text }` |
 | `image-list` | Dark full-screen, title, left video/placeholder, right icon-per-bullet list (`{ title, items, video? }`) |
 | `key-takeaways` | Dark full-screen, title, subtitle, icon cards, callout box (`{ title, subtitle, cards, callout }`) |
 | `agenda` | Dark full-screen, glowing title, 2×2 grid of numbered cards (`{ title, items[] }`) — each item: `{ number, heading, text }` |
@@ -103,4 +103,5 @@ When a layout is large (full slide), set `grid-row: 1 / 3` on the wrapper so it 
 - Accent / borders: `#14b8a6` (teal)
 - Card borders: `rgba(139, 92, 246, 0.35)` (purple)
 - Icon colour / numbers: `#2dd4bf` (light teal)
+- Card sub-headings (h2 inside cards): `#2dd4bf` (light teal)
 - Muted text: `rgba(255, 255, 255, 0.65)`
