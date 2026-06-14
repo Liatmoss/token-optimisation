@@ -388,6 +388,24 @@ function App() {
             ))}
           </div>
         </div>
+      ) : slide.layout === 'bullet-list' ? (
+        <div className="bullet-list-wrapper" aria-live="polite">
+          <div className="bullet-list-header">
+            <h1 className="bullet-list-title">{slide.title}</h1>
+            {slide.subtitle && <p className="bullet-list-subtitle">{slide.subtitle}</p>}
+          </div>
+          <ul className="bullet-list-items">
+            {slide.items.map((item) => (
+              <li key={item.heading} className="bullet-list-item">
+                <div className="bullet-list-item-icon">{ICONS[item.icon]}</div>
+                <div className="bullet-list-item-content">
+                  <span className="bullet-list-item-heading">{item.heading}</span>
+                  <span className="bullet-list-item-body">{item.body}</span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
       ) : slide.layout === 'dark-list' ? (
         <div className="dark-list-wrapper" aria-live="polite">
           <h1 className="dark-list-title">{slide.title}</h1>
