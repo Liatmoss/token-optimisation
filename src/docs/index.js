@@ -5,6 +5,7 @@ import slide04 from './slide-04-what-well-cover.js'
 import slide05 from './slide-05-token-consumers.js'
 import slide06 from './slide-06-token-conscious.js'
 import slide07 from './slide-07-check-prompts.js'
+import slide08 from './slide-08-model-choices.js'
 
 const slides = [
   slide01,
@@ -14,6 +15,7 @@ const slides = [
   slide05,
   slide06,
   slide07,
+  slide08,
 ]
 
 export default slides
