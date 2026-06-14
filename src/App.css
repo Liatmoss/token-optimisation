@@ -708,9 +708,9 @@
 
 .content-card-heading {
   margin: 0;
-  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-size: clamp(1.1rem, 2.2vw, 1.5rem);
   font-weight: 700;
-  color: #ffffff;
+  color: #2dd4bf;
 }
 
 .content-card-points {
@@ -719,7 +719,7 @@
   list-style: none;
   display: grid;
   gap: 0.6rem;
-  font-size: clamp(0.9rem, 1.8vw, 1.05rem);
+  font-size: clamp(1rem, 2.1vw, 1.25rem);
   color: rgba(255, 255, 255, 0.85);
   line-height: 1.5;
 }

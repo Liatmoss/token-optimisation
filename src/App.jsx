@@ -264,7 +264,7 @@ function App() {
             <div className="content-card-split-columns">
               <div className="content-card">
                 <div className="content-card-header">
-                  <div className="content-card-icon">{ICONS[slide.card.icon]}</div>
+                  {slide.card.icon && <div className="content-card-icon">{ICONS[slide.card.icon]}</div>}
                   <h2 className="content-card-heading">{slide.card.heading}</h2>
                 </div>
                 <ul className="content-card-points">
@@ -300,7 +300,7 @@ function App() {
           ) : (
             <div className="content-card">
               <div className="content-card-header">
-                <div className="content-card-icon">{ICONS[slide.card.icon]}</div>
+                {slide.card.icon && <div className="content-card-icon">{ICONS[slide.card.icon]}</div>}
                 <h2 className="content-card-heading">{slide.card.heading}</h2>
               </div>
               <ul className="content-card-points">
