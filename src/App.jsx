@@ -235,6 +235,39 @@ function App() {
             </ul>
           </div>
         </div>
+      ) : slide.layout === 'split-list' ? (
+        <div className="split-list-wrapper" aria-live="polite">
+          <div className="split-list-left">
+            {slide.video ? (
+              <video
+                ref={videoRef}
+                src={slide.video}
+                muted
+                playsInline
+                loop
+                className="split-list-video"
+              />
+            ) : (
+              <div className="split-list-placeholder">
+                {ICONS.imagePlaceholder}
+                <span>Image placeholder</span>
+              </div>
+            )}
+          </div>
+          <div className="split-list-right">
+            <h1 className="split-list-title">{slide.title}</h1>
+            <ul className="split-list-items">
+              {slide.items.map((item) => (
+                <li key={item.text}>
+                  <div className="split-list-item-icon" style={item.color ? { background: item.color + '33', color: item.color } : {}}>
+                    {ICONS[item.icon]}
+                  </div>
+                  <span>{item.text}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       ) : slide.layout === 'comparison-cards' ? (
         <div className="comparison-wrapper" aria-live="polite">
           <h1 className="comparison-title">{slide.title}</h1>

@@ -12,7 +12,8 @@ The system Node (v14) is too old for Vite 8. Use the Node 20 binary directly:
 
 Then open http://localhost:5173.
 
-> `npm run dev` will not work because the `prefix` entry in `~/.npmrc` conflicts with nvm, and the fallback system Node is v14.
+> `npm run dev` will not work because the `prefix` entry in `~/.npmrc` 
+> conflicts with nvm, and the fallback system Node is v14.
 
 To kill the dev server:
 
