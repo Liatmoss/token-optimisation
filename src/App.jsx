@@ -413,7 +413,7 @@ function App() {
                 <div className="bullet-list-item-icon">{ICONS[item.icon]}</div>
                 <div className="bullet-list-item-content">
                   <span className="bullet-list-item-heading">{item.heading}</span>
-                  <span className="bullet-list-item-body">{item.body}</span>
+                  {item.body && <span className="bullet-list-item-body">{item.body}</span>}
                 </div>
               </li>
             ))}
