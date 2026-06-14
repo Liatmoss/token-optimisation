@@ -337,6 +337,24 @@ function App() {
             ))}
           </div>
         </div>
+      ) : slide.layout === 'tips-grid' ? (
+        <div className="tips-grid-wrapper" aria-live="polite">
+          <div className="tips-grid-header">
+            <h1 className="tips-grid-title">{slide.title}</h1>
+            <p className="tips-grid-subtitle">{slide.subtitle}</p>
+          </div>
+          <div className="tips-grid">
+            {slide.items.map((item) => (
+              <div key={item.heading} className="tips-grid-card">
+                <div className="tips-grid-card-header">
+                  <div className="tips-grid-card-icon">{ICONS[item.icon]}</div>
+                  <h2 className="tips-grid-card-heading">{item.heading}</h2>
+                </div>
+                <p className="tips-grid-card-body">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       ) : slide.layout === 'dark-list' ? (
         <div className="dark-list-wrapper" aria-live="polite">
           <h1 className="dark-list-title">{slide.title}</h1>
