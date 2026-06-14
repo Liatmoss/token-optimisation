@@ -19,8 +19,8 @@ const slide = {
     },
     {
       number: '04',
-      heading: 'Final thoughts',
-      text: 'When is AI the right tool for the job',
+      heading: 'When is AI the right tool?',
+      text: 'What should we be asking before using AI',
     },
   ],
 }
