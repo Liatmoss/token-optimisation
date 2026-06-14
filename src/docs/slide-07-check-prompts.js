@@ -1,9 +1,11 @@
-import video from '../assets/check-prompts.mov'
-
 const slide = {
   layout: 'split-list',
-  video,
   title: 'Check Your Prompts',
+  examples: {
+    vague: 'Can you help me fix the bug in my code?',
+    specific:
+      'In Services/UserService.cs, the GetUserById method is returning null when a user doesn\'t exist. Update it to throw a UserNotFoundException instead — the exception class already exists in Exceptions/UserNotFoundException.cs. Don\'t change the method signature.',
+  },
   items: [
     {
       icon: 'target',
