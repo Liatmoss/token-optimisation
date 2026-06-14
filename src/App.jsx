@@ -281,6 +281,32 @@ function App() {
             </ul>
           </div>
         </div>
+      ) : slide.layout === 'code-compare' ? (
+        <div className="code-compare-wrapper" aria-live="polite">
+          <div className="code-compare-header">
+            <h1 className="code-compare-title">{slide.title}</h1>
+            <ul className="code-compare-points">
+              {slide.items.map((item) => (
+                <li key={item.text} className="code-compare-point">
+                  <div className="code-compare-point-icon" style={item.color ? { background: item.color + '22', color: item.color } : {}}>
+                    {ICONS[item.icon]}
+                  </div>
+                  <span>{item.text}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="code-compare-examples">
+            <div className="code-compare-example code-compare-example--bad">
+              <span className="code-compare-label code-compare-label--bad">Bloated</span>
+              <pre className="code-compare-text">{slide.examples.vague}</pre>
+            </div>
+            <div className="code-compare-example code-compare-example--good">
+              <span className="code-compare-label code-compare-label--good">Trimmed</span>
+              <pre className="code-compare-text">{slide.examples.specific}</pre>
+            </div>
+          </div>
+        </div>
       ) : slide.layout === 'comparison-cards' ? (
         <div className="comparison-wrapper" aria-live="polite">
           <h1 className="comparison-title">{slide.title}</h1>
