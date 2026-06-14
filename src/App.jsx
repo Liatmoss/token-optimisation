@@ -198,13 +198,15 @@ function App() {
               </div>
             ))}
           </div>
-          <div className="key-takeaways-callout">
-            <div className="key-takeaways-callout-icon">{ICONS[slide.callout.icon]}</div>
-            <div className="key-takeaways-callout-content">
-              <p className="key-takeaways-callout-heading">{slide.callout.heading}</p>
-              <p className="key-takeaways-callout-text">{slide.callout.text}</p>
+          {slide.callout && (
+            <div className="key-takeaways-callout">
+              <div className="key-takeaways-callout-icon">{ICONS[slide.callout.icon]}</div>
+              <div className="key-takeaways-callout-content">
+                <p className="key-takeaways-callout-heading">{slide.callout.heading}</p>
+                <p className="key-takeaways-callout-text">{slide.callout.text}</p>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       ) : slide.layout === 'image-list' ? (
         <div className="image-list-wrapper" aria-live="polite">
