@@ -24,6 +24,11 @@ const slide = {
       heading: 'copilot-skills-budget',
       body: 'Shows how much of your context window is being taken up by skills',
     },
+    {
+      icon: 'terminal',
+      heading: '/compact',
+      body: 'Condenses your conversation history to free up context window space without starting a new session',
+    },
   ],
 }
 
