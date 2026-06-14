@@ -1,5 +1,5 @@
 const slide = {
-  layout: 'split-list',
+  layout: 'code-compare',
   title: 'Keep Instruction Files Short',
   examples: {
     vague: `# My Project\nThis project is a React application that uses TypeScript and we use Vite for bundling. The team prefers functional components over class components. Always use arrow functions. Never use var, always use const or let. We use ESLint and Prettier for formatting. Make sure to follow the existing code style throughout the project. The project also uses Tailwind CSS for styling and we prefer utility classes over custom CSS where possible...`,
