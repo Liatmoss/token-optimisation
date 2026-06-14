@@ -264,7 +264,7 @@ function App() {
             <div className="content-card-split-columns">
               <div className="content-card">
                 <div className="content-card-header">
-                  <div className="content-card-icon">{ICONS[slide.card.icon]}</div>
+                  {slide.card.icon && <div className="content-card-icon">{ICONS[slide.card.icon]}</div>}
                   <h2 className="content-card-heading">{slide.card.heading}</h2>
                 </div>
                 <ul className="content-card-points">
@@ -300,7 +300,7 @@ function App() {
           ) : (
             <div className="content-card">
               <div className="content-card-header">
-                <div className="content-card-icon">{ICONS[slide.card.icon]}</div>
+                {slide.card.icon && <div className="content-card-icon">{ICONS[slide.card.icon]}</div>}
                 <h2 className="content-card-heading">{slide.card.heading}</h2>
               </div>
               <ul className="content-card-points">
@@ -333,6 +333,24 @@ function App() {
                 <span className="agenda-number">{item.number}</span>
                 <h2 className="agenda-heading">{item.heading}</h2>
                 <p className="agenda-text">{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      ) : slide.layout === 'tips-grid' ? (
+        <div className="tips-grid-wrapper" aria-live="polite">
+          <div className="tips-grid-header">
+            <h1 className="tips-grid-title">{slide.title}</h1>
+            <p className="tips-grid-subtitle">{slide.subtitle}</p>
+          </div>
+          <div className="tips-grid">
+            {slide.items.map((item) => (
+              <div key={item.heading} className="tips-grid-card">
+                <div className="tips-grid-card-header">
+                  <div className="tips-grid-card-icon">{ICONS[item.icon]}</div>
+                  <h2 className="tips-grid-card-heading">{item.heading}</h2>
+                </div>
+                <p className="tips-grid-card-body">{item.body}</p>
               </div>
             ))}
           </div>

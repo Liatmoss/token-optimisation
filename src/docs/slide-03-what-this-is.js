@@ -5,7 +5,6 @@ const slide = {
   title: 'What Token Optimisation Is',
   video,
   card: {
-    icon: 'brain',
     heading: 'Use AI Intentionally',
     points: [
       'Benefit > Cost',
