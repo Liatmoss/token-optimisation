@@ -247,6 +247,17 @@ function App() {
                 loop
                 className="split-list-video"
               />
+            ) : slide.examples ? (
+              <div className="split-list-examples">
+                <div className="split-list-example split-list-example--bad">
+                  <span className="split-list-example-label split-list-example-label--bad">Vague</span>
+                  <p className="split-list-example-text">{slide.examples.vague}</p>
+                </div>
+                <div className="split-list-example split-list-example--good">
+                  <span className="split-list-example-label split-list-example-label--good">Specific</span>
+                  <p className="split-list-example-text">{slide.examples.specific}</p>
+                </div>
+              </div>
             ) : (
               <div className="split-list-placeholder">
                 {ICONS.imagePlaceholder}
