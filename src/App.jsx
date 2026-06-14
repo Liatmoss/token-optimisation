@@ -413,11 +413,26 @@ function App() {
                 <div className="bullet-list-item-icon">{ICONS[item.icon]}</div>
                 <div className="bullet-list-item-content">
                   <span className="bullet-list-item-heading">{item.heading}</span>
-                  <span className="bullet-list-item-body">{item.body}</span>
+                  {item.body && <span className="bullet-list-item-body">{item.body}</span>}
                 </div>
               </li>
             ))}
           </ul>
+        </div>
+      ) : slide.layout === 'reflection-grid' ? (
+        <div className="reflection-grid-wrapper" aria-live="polite">
+          <div className="reflection-grid-header">
+            <h1 className="reflection-grid-title">{slide.title}</h1>
+            {slide.subtitle && <p className="reflection-grid-subtitle">{slide.subtitle}</p>}
+          </div>
+          <div className="reflection-grid">
+            {slide.items.map((item) => (
+              <div key={item.heading} className="reflection-grid-card">
+                <h2 className="reflection-grid-card-heading">{item.heading}</h2>
+                {item.body && <p className="reflection-grid-card-body">{item.body}</p>}
+              </div>
+            ))}
+          </div>
         </div>
       ) : slide.layout === 'dark-list' ? (
         <div className="dark-list-wrapper" aria-live="polite">
