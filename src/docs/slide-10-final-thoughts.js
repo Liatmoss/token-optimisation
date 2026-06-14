@@ -1,5 +1,5 @@
 const slide = {
-  layout: 'bullet-list',
+  layout: 'reflection-grid',
   title: 'When is AI the right tool?',
   subtitle:
     'Token optimisation starts with deciding when AI is the right tool for the job, choosing a model or trimming an instruction file is just the next step in the process.',
